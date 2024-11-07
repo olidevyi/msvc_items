@@ -12,4 +12,6 @@ public class Product {
     private String name;
     private Double price;
     private LocalDate createAt;
+    // NUEVO, para ver desde el microservicio 2 (cliente que consume microservicio 1 en sus diferentes puertos balanceando la carga)
+    private int port;
 }
