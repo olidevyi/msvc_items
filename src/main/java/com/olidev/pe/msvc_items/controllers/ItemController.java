@@ -2,7 +2,10 @@ package com.olidev.pe.msvc_items.controllers;
 
 import com.olidev.pe.msvc_items.dtos.Item;
 import com.olidev.pe.msvc_items.services.ItemService;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +18,9 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 public class ItemController {
-    private final ItemService service;
+
+    @Qualifier("itemServiceWebClient")
+    private final ItemService service; // de las 2 clases que implementan ItemService se escoge ItemServiceWebClient
 
     @GetMapping
     public List<Item> list() {
